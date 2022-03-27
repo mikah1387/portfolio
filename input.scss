@@ -91,22 +91,29 @@ color: $black ;
            
             .link>a{
                 display: block;
-            
+                position: relative;
                 width: 100px;
                 padding: 20px 5px;
                 font-weight: 600;
+                z-index: auto;
                 transition: all 0.5s;
-                span{
+                span {
                    
                     position: absolute;
-                    display: none;
-                    top: 60%;
-                    left: 25%;
-                    font-size: 30px;
+                    
+
+                    top: 70px;
+                     left: 50px;
+                    font-size: 40px;
+                   
+                    font-size: 35px;
                     letter-spacing: 15px;
                     
+                    
                     color: #4d4d4d;
-                    // transform: rotate(90deg);
+                    display: none;
+
+                    transform: rotate(90deg);
                     
                     
                 }
@@ -129,7 +136,8 @@ color: $black ;
                     span{
 
                         display: block;
-                   
+                      animation: animspan 0.8s;
+                      
 
                     }
                 }
@@ -249,14 +257,14 @@ color: $black ;
     flex-wrap: wrap;
     
 //    background: linear-gradient( to bottom, rgba(0, 0, 0, 0.384),rgba(255, 255, 255, 1)),center/ cover no-repeat url("libs/image/home.jpg") ;
-   background: linear-gradient(to top,rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.3)),center/ cover  url("libs/image/home.jpg") ;
+   background:  linear-gradient(157deg, rgba(1,1,1,1) 23%, rgba(254,254,254,0.023144291896446068) 65%),center/ cover  url("libs/image/home.jpg") ;
    height: 100vh;
 //    animation: animhome 5s alternate infinite;
 //    transition: 1s;
 
    .text{
         position: absolute;
-        top: 550px;
+        top: 450px;
         left: 40px;
         // transform: translate(-60%);
 
@@ -283,8 +291,8 @@ color: $black ;
   
    .avatar{
      position: absolute;
-     top: 20px;
-     left: 20px;
+     top: 40px;
+     left: 40px;
      transform: translate(0%,0%);
      background: center /contain  url("libs/image/Capture.PNG")  ;
 
@@ -295,8 +303,8 @@ color: $black ;
 //     rgba(237,232,232,0.6085784655659139) 49%,),  url("libs/image/Capture.PNG");
 //     background-size: contain;
     //   background-image: center center/contain url("libs/image/Capture.PNG");
-     width: 150px;
-     height: 150px;
+     width: 200px;
+     height: 200px;
      border-radius: 50%;
     //  animation: photo 12s  linear alternate infinite;
      transition:  all 0.8s;
@@ -317,7 +325,7 @@ color: $black ;
      width: 100%;
      height: 100%;
      border-radius: 50%;
-     background: linear-gradient(320deg, rgba(115, 114, 114, 0.219) 15%, rgba(252,252,252,0.8074580173866421) 85%);
+    //  background: linear-gradient(320deg, rgba(115, 114, 114, 0.219) 15%, rgba(252,252,252,0.8074580173866421) 85%);
 
      }
     }
@@ -333,11 +341,11 @@ color: $black ;
     height: auto;
     padding: 20px;
     //  background:  linear-gradient( to top, rgba(0, 0, 0, 0.384),rgba(255, 255, 255, 1));
-    background: black;
+    background:  linear-gradient(to bottom, rgba(255, 255, 255, 0.452), rgba(255, 255, 255, 0.596)), center / cover url("libs/image/competences.jpg");
      perspective: 1000px;
     //  transform-style: preserve-3d;
 
-     .card{
+     [class*="card-"]{
          display: block;
         position: relative;
         width: 180px;
@@ -406,16 +414,24 @@ color: $black ;
      
          &:hover .back{
 
-            transform: perspective(600px) rotateY(0deg);
+            transform: perspective(1000px) rotateY(0deg);
             
          }
          &:hover .front{
 
-            transform: perspective(600px) rotateY(-180deg);
+            transform: perspective(1000px) rotateY(-180deg);
             
          }
      }
-    
+     .card-2{
+         transition-delay: 0.5s;
+     }
+     .card-3{
+        transition-delay: 1s;
+    }
+    .card-4{
+        transition-delay: 1.5s;
+    }
      
 
   }
@@ -867,6 +883,20 @@ color: $black ;
         opacity: 0.1;
     }
 }
+@keyframes animspan {
+
+    0%{
+
+        visibility: hidden;
+          
+
+    }
+    100%{
+        visibility: visible;
+        
+    }
+    
+}
 // @keyframes animhome {
 //     0%{
 
@@ -897,9 +927,11 @@ color: $black ;
     .header .nav_bar.active .nav_links .link > a span {
         position: absolute;
         display: none;
-        top: 60%;
-        left: 30%;
-        font-size: 45px;
+        top: 70px;
+        left: 60px;
+        font-size: 40px;
+                   
+        font-size: 40px;
         letter-spacing: 20px;
         color: #4d4d4d;
     }

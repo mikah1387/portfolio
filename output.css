@@ -56,7 +56,7 @@ a {
   color: inherit;
 }
 
-.main .section_contact .container_contact .icons .icon, .main .section_contact, .main .section_service .container-general .service1 .icon-service, .main .section_projets .card .back, .main .section_projets {
+.main .section_contact .container_contact .icons .icon, .main .section_contact, .main .section_service .container-general .service1 .icon-service, .main .section_projets [class*=card-] .back, .main .section_projets {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,19 +111,23 @@ a {
 }
 .header .nav_bar.active .nav_links .link > a {
   display: block;
+  position: relative;
   width: 100px;
   padding: 20px 5px;
   font-weight: 600;
+  z-index: auto;
   transition: all 0.5s;
 }
 .header .nav_bar.active .nav_links .link > a span {
   position: absolute;
-  display: none;
-  top: 60%;
-  left: 25%;
-  font-size: 30px;
+  top: 70px;
+  left: 50px;
+  font-size: 40px;
+  font-size: 35px;
   letter-spacing: 15px;
   color: #4d4d4d;
+  display: none;
+  transform: rotate(90deg);
 }
 .header .nav_bar.active .nav_links .link > a::after {
   content: "";
@@ -140,6 +144,7 @@ a {
 }
 .header .nav_bar.active .nav_links .link > a:hover span {
   display: block;
+  animation: animspan 0.8s;
 }
 .header .nav_bar .button {
   background: transparent;
@@ -209,12 +214,12 @@ a {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), center/cover url("libs/image/home.jpg");
+  background: linear-gradient(157deg, #010101 23%, rgba(254, 254, 254, 0.0231442919) 65%), center/cover url("libs/image/home.jpg");
   height: 100vh;
 }
 .main .section_home .text {
   position: absolute;
-  top: 550px;
+  top: 450px;
   left: 40px;
 }
 .main .section_home .text .nom {
@@ -234,12 +239,12 @@ a {
 }
 .main .section_home .avatar {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 40px;
+  left: 40px;
   transform: translate(0%, 0%);
   background: center/contain url("libs/image/Capture.PNG");
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   transition: all 0.8s;
 }
@@ -252,17 +257,16 @@ a {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(320deg, rgba(115, 114, 114, 0.219) 15%, rgba(252, 252, 252, 0.8074580174) 85%);
 }
 .main .section_projets {
   flex-wrap: wrap;
   min-height: 100vh;
   height: auto;
   padding: 20px;
-  background: black;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.452), rgba(255, 255, 255, 0.596)), center/cover url("libs/image/competences.jpg");
   perspective: 1000px;
 }
-.main .section_projets .card {
+.main .section_projets [class*=card-] {
   display: block;
   position: relative;
   width: 180px;
@@ -273,7 +277,7 @@ a {
   overflow: hidden;
   transition: 0.5s;
 }
-.main .section_projets .card .front {
+.main .section_projets [class*=card-] .front {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -282,7 +286,7 @@ a {
   transform: perspective(1000px) rotateY(0);
   transition: transform 0.6s linear;
 }
-.main .section_projets .card .back {
+.main .section_projets [class*=card-] .back {
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -295,28 +299,37 @@ a {
   transform: perspective(1000px) rotateY(180deg);
   transition: transform 0.6s linear;
 }
-.main .section_projets .card .back h1 {
+.main .section_projets [class*=card-] .back h1 {
   font-size: 14px;
   margin-bottom: 5px;
   font-weight: 900;
   color: red;
   font-style: italic;
 }
-.main .section_projets .card .back p {
+.main .section_projets [class*=card-] .back p {
   text-align: center;
   font-size: 10px;
   font-weight: 500;
   padding: 6px 25px;
 }
-.main .section_projets .card .back .p1 {
+.main .section_projets [class*=card-] .back .p1 {
   font-weight: 700;
   font-size: 12px;
 }
-.main .section_projets .card:hover .back {
-  transform: perspective(600px) rotateY(0deg);
+.main .section_projets [class*=card-]:hover .back {
+  transform: perspective(1000px) rotateY(0deg);
 }
-.main .section_projets .card:hover .front {
-  transform: perspective(600px) rotateY(-180deg);
+.main .section_projets [class*=card-]:hover .front {
+  transform: perspective(1000px) rotateY(-180deg);
+}
+.main .section_projets .card-2 {
+  transition-delay: 0.5s;
+}
+.main .section_projets .card-3 {
+  transition-delay: 1s;
+}
+.main .section_projets .card-4 {
+  transition-delay: 1.5s;
 }
 .main .section_service {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.452), rgba(255, 255, 255, 0.596)), center/cover url("libs/image/competences.jpg");
@@ -636,6 +649,14 @@ a {
     opacity: 0.1;
   }
 }
+@keyframes animspan {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
 @media (min-width: 500px) {
   .main .section_projets .card {
     margin: 30px;
@@ -647,9 +668,10 @@ a {
   .header .nav_bar.active .nav_links .link > a span {
     position: absolute;
     display: none;
-    top: 60%;
-    left: 30%;
-    font-size: 45px;
+    top: 70px;
+    left: 60px;
+    font-size: 40px;
+    font-size: 40px;
     letter-spacing: 20px;
     color: #4d4d4d;
   }
